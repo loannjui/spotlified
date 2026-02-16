@@ -1,0 +1,29 @@
+:root {
+  --main-text-color: #3C4C42;
+  --light-grey-bg: #F4F6F5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: "tt-commons-pro", Helvetica, sans-serif;
+  color: var(--main-text-color);
+}
+
+.brand {
+  font-weight: 700;
+}
+
+nav {
+  background-color: var(--light-grey-bg);
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+main {
+  padding: 1rem;
+}
