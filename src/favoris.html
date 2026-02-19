@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
   <head>
+    <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -10,18 +11,75 @@
     <link rel="stylesheet" href="css/index.css" />
     <script src="index.js" type="module" defer></script>
   </head>
-<body>
-        <header>
-      <div class="brand">Mon logo</div>
-      <a href="#">
+  <body>
+    <header>
+      <a href="index.html" id="brand">Mon logo</a>
+      <a class="sml-btn" href="search.html">
         <i class="fa-solid fa-magnifying-glass"></i>
       </a>
     </header>
     <main>
       <section>
-        <h1>Bienvenue sur Spotlified</h1>
-        <button class="solid">Vers les favoris</button>
-        <button class="solid">Vers les artistes</button>
+        <h2>Artistes</h2>
+        <div class="container">
+          <ul id="favorites">
+            <li>
+              <h3>Never Going Home</h3>
+              <div class="options">
+                <button class="sml-btn" href="#">
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <a class="sml-btn" href="#">
+                  <i class="fa-solid fa-play"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <h3>This Girl</h3>
+              <div class="options">
+                <button class="sml-btn" href="#">
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <a class="sml-btn" href="#">
+                  <i class="fa-solid fa-play"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <h3>Lipstick</h3>
+              <div class="options">
+                <button class="sml-btn" href="#">
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <a class="sml-btn" href="#">
+                  <i class="fa-solid fa-play"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <h3>I Feel So Bad</h3>
+              <div class="options">
+                <button class="sml-btn" href="#">
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <a class="sml-btn" href="#">
+                  <i class="fa-solid fa-play"></i>
+                </a>
+              </div>
+            </li>
+            <li>
+              <h3>Don't You Know</h3>
+              <div class="options">
+                <button class="sml-btn" href="#">
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <a class="sml-btn" href="#">
+                  <i class="fa-solid fa-play"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
     <nav>
@@ -38,5 +96,5 @@
         <i class="fa-solid fa-heart"></i>
       </a>
     </nav>
-</body>
+  </body>
 </html>
