@@ -40,13 +40,13 @@ h3 {
 
 img {
   display: block;
-  border-radius: 5px;
-  box-shadow: var(--shadow);
 }
 
 img.img-responsive {
   width: 100%;
+  border-radius: 5px;
   height: auto;
+  box-shadow: var(--shadow);
 }
 
 .brand {
@@ -178,7 +178,9 @@ section.centered {
   color: var(--light-text-color);
   border-radius: 3rem;
   padding: var(--half-margin) calc(var(--half-margin) * 1.5);
-  transition: background-color 0.25s cubic-bezier(.61,0,.25,.99), color .25s cubic-bezier(.61,0,.25,.99);
+  transition:
+    background-color 0.25s cubic-bezier(0.61, 0, 0.25, 0.99),
+    color 0.25s cubic-bezier(0.61, 0, 0.25, 0.99);
 }
 
 .btn-solid:hover,
@@ -224,8 +226,8 @@ h1 {
   border-radius: 2rem;
   background: var(--light-grey-bg);
   outline: none;
-  -webkit-transition: 0.2s cubic-bezier(.61,0,.25,.99);
-  transition: opacity 0.2s cubic-bezier(.61,0,.25,.99);
+  -webkit-transition: 0.2s cubic-bezier(0.61, 0, 0.25, 0.99);
+  transition: opacity 0.2s cubic-bezier(0.61, 0, 0.25, 0.99);
 }
 
 .slider::-webkit-slider-thumb {
@@ -256,6 +258,7 @@ h1 {
   position: relative;
   width: calc((100% - (var(--standard-margin) * 2)) / 3);
   height: auto;
+  transition: scale 0.25s ease-in-out;
   @media screen and (min-width: 784px) {
     width: calc((100% - (var(--standard-margin) * 4)) / 5);
   }
@@ -269,7 +272,14 @@ h1 {
     margin: 0;
     text-align: center;
     color: var(--pure-white);
+    @media screen and (min-width: 784px) {
+      font-size: 1.5rem;
+    }
   }
+}
+
+.artist:hover {
+  scale: 1.03;
 }
 
 .artist::after {
