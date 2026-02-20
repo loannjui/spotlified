@@ -110,7 +110,7 @@ header {
   background-color: var(--highlight-green);
 }
 
-nav {
+footer {
   background-color: var(--light-grey-bg);
   position: fixed;
   z-index: 9998;
@@ -121,7 +121,7 @@ nav {
   padding: var(--half-margin);
 }
 
-nav a {
+footer a {
   background-color: var(--light-grey-bg);
   width: 25%;
   color: var(--light-text-color);
@@ -135,8 +135,8 @@ nav a {
     font-size: 1.5rem;
   }
 }
-nav a:hover,
-nav a:focus {
+footer a:hover,
+footer a:focus {
   background-color: var(--highlight-green);
   color: var(--standard-green);
 }
