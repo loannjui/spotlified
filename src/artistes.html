@@ -8,8 +8,9 @@
     />
     <title>Spotlified - Artistes</title>
     <link rel="stylesheet" href="https://use.typekit.net/ejq1tva.css" />
-    <link rel="stylesheet" href="css/index.css" />
-    <script src="index.js" type="module" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/index.js" type="module" defer></script>
+    <script src="js/artist.js" type="module" defer></script>
   </head>
   <body>
     <header>
@@ -21,7 +22,7 @@
     <main>
       <section>
         <h2>Artistes</h2>
-        <div class="container">
+        <div id="artist-container" class="container">
           <div class="artist">
             <img class="img-responsive" src="http://placecats.com/150/150" />
             <p class="artist-name">Ava Max</p>
@@ -49,19 +50,23 @@
         </div>
       </section>
     </main>
-    <nav>
+    <footer>
       <a href="index.html">
         <i class="fa-solid fa-house"></i>
+        <p>Accueil</p>
       </a>
       <a href="play.html">
         <i class="fa-solid fa-play"></i>
+        <p>Play</p>
       </a>
       <a href="artistes.html">
         <i class="fa-solid fa-guitar"></i>
+        <p>Artistes</p>
       </a>
       <a href="favoris.html">
         <i class="fa-solid fa-heart"></i>
+        <p>Favoris</p>
       </a>
-    </nav>
+    </footer>
   </body>
 </html>
