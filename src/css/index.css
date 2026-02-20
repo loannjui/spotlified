@@ -141,11 +141,20 @@ nav a:focus {
   color: var(--standard-green);
 }
 
+main {
+  padding: calc(4rem + var(--standard-margin)) 0
+    calc(5rem + var(--standard-margin) * 2);
+  min-height: 100vh;
+  @media screen and (min-width: 784px) {
+    padding: calc(4rem + var(--standard-margin) * 2)
+      calc(var(--standard-margin) * 4) calc(5rem + var(--standard-margin) * 2);
+  }
+}
+
 section {
   display: flex;
   flex-direction: column;
-  padding: calc(4rem + var(--standard-margin) * 2) var(--standard-margin)
-    var(--standard-margin);
+  padding: var(--standard-margin);
   gap: var(--standard-margin);
 }
 
@@ -169,13 +178,13 @@ section.centered {
   color: var(--light-text-color);
   border-radius: 3rem;
   padding: var(--half-margin) calc(var(--half-margin) * 1.5);
-  transition: all 0.25s ease-in-out;
+  transition: background-color 0.25s cubic-bezier(.61,0,.25,.99), color .25s cubic-bezier(.61,0,.25,.99);
 }
 
 .btn-solid:hover,
 .btn-solid:focus {
-  background-color: var(--highlight-green);
-  color: var(--standard-green);
+  background-color: var(--standard-green);
+  color: var(--pure-white);
 }
 
 .btn-solid.round {
@@ -215,8 +224,8 @@ h1 {
   border-radius: 2rem;
   background: var(--light-grey-bg);
   outline: none;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
+  -webkit-transition: 0.2s cubic-bezier(.61,0,.25,.99);
+  transition: opacity 0.2s cubic-bezier(.61,0,.25,.99);
 }
 
 .slider::-webkit-slider-thumb {
@@ -247,6 +256,9 @@ h1 {
   position: relative;
   width: calc((100% - (var(--standard-margin) * 2)) / 3);
   height: auto;
+  @media screen and (min-width: 784px) {
+    width: calc((100% - (var(--standard-margin) * 4)) / 5);
+  }
   p {
     position: absolute;
     z-index: 2;
