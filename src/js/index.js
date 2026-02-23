@@ -1,42 +1,54 @@
 import "normalize.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import {
+  pageIndex,
+  pagePlay,
+  pageArtists,
+  pageFavorites,
+  pageSearch,
+  pageListSongs,
+} from "./pages.js";
 
-const songsContainer = document.querySelector("#favorites");
+const displaySection = () => {
+  const main = document.querySelector("main");
+  const hash = window.location.hash || "#index";
+  const [route, info] = hash.split("?");
+  const searchBar = document.querySelector("#search-bar");
 
-async function displaySongs() {
-  songsContainer.innerHTML = "";
-  getArtists().then((artists) => {
-    artists.forEach((artist) => {
-      getArtistsSongs(artist.id).then((songs) => {
-        console.log(songs);
-        songs.forEach((song) => {
-          displaySong(song);
-        });
-      });
-    });
-  });
-}
+  switch (route) {
+    case "#index":
+      main.innerHTML = "<page-index />";
+      searchBar.style.display = "none";
+      break;
+    case "#play":
+      main.innerHTML = `<page-play />`;
+      searchBar.style.display = "none";
+      break;
+    case "#artists":
+      main.innerHTML = "<page-artists />";
+      searchBar.style.display = "none";
+      break;
+    case "#list":
+      main.innerHTML = `<page-list-songs />`;
+      searchBar.style.display = "none";
+      break;
+    case "#favorites":
+      main.innerHTML = "<page-favorites />";
+      searchBar.style.display = "none";
+      break;
+    case "#search":
+      main.innerHTML = "<page-search />";
+      searchBar.style.display = "block";
+      break;
+  }
+};
 
-function displaySong(song) {
-  songsContainer.innerHTML += `<li>
-            <h3>${song.title}</h3>
-            <div class="options">
-              <button class="sml-btn">
-                <i class="fa-solid fa-heart"></i>
-              </button>
-              <a class="sml-btn">
-                <i class="fa-solid fa-play"></i>
-              </a>
-            </div>
-          </li>`;
-}
+customElements.define("page-index", pageIndex);
+customElements.define("page-play", pagePlay);
+customElements.define("page-artists", pageArtists);
+customElements.define("page-list-songs", pageListSongs);
+customElements.define("page-favorites", pageFavorites);
+customElements.define("page-search", pageSearch);
 
-async function getArtistsSongs(id) {
-  let urlSongs = `https://webmob-ui-22-spotlified.herokuapp.com/api/artists/${id}/songs`;
-  return fetch(urlSongs).then((response) => response.json());
-}
-
-
-
-displayArtists();
-displaySongs();
+window.addEventListener("hashchange", displaySection);
+displaySection();
