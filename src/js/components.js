@@ -97,3 +97,4 @@ class playSong extends HTMLElement {
         </div>`;
   }
 }
+customElements.define("play-song", playSong);
