@@ -1,13 +1,32 @@
 import "normalize.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import {
-  pageIndex,
-  pagePlay,
-  pageArtists,
-  pageFavorites,
-  pageSearch,
-  pageListSongs,
-} from "./pages.js";
+import { pageArtists } from "./pages/page-artists.js";
+import { pageListSongs } from "./pages/page-list.js";
+import { pagePlay } from "./pages/page-play.js";
+import { pageFavorites } from "./pages/page-favorites.js";
+import { pageSearch } from "./pages/page-search.js";
+import "./pages/components/artist-cover.js";
+import "./pages/components/search-results.js";
+import "./pages/components/song-list.js";
+import "./pages/components/player/player.js";
+import "./pages/components/nav.js";
+
+class pageIndex extends HTMLElement {
+  connectedCallback() {
+    this.render();
+  }
+  attributeChangedCallback() {
+    this.render();
+  }
+  render() {
+    this.innerHTML = `<section id="welcome-section" class="centered">
+        <h1>Bienvenue sur Spotlified</h1>
+        <a class="btn-solid" href="#favorites">Vers les favoris</a>
+        <a class="btn-solid" href="#artists">Vers les artistes</a>
+      </section>
+    `;
+  }
+}
 
 const displaySection = () => {
   const main = document.querySelector("main");

@@ -30,15 +30,21 @@ body {
   display: none;
 }
 
+#player {
+  display: none;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+  margin:0;
+  &.centered {
+    text-align: center;
+  }
 }
-
 h3 {
   font-weight: 500;
 }
@@ -114,7 +120,7 @@ header {
   }
 }
 
-footer {
+bottom-nav {
   background-color: var(--light-grey-bg);
   position: fixed;
   z-index: 9998;
@@ -126,7 +132,7 @@ footer {
   gap: var(--half-margin);
 }
 
-footer a {
+bottom-nav a {
   display: flex;
   flex-direction: column;
   background-color: var(--light-grey-bg);
@@ -146,8 +152,8 @@ footer a {
     margin: 4px 0 0 0;
   }
 }
-footer a:hover,
-footer a:focus {
+bottom-nav a:hover,
+bottom-nav a:focus {
   background-color: var(--highlight-green);
   color: var(--standard-green);
 }
@@ -218,7 +224,11 @@ h1 {
 #audio-controls {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--standard-margin) * 2);
+  gap: var(--standard-margin);
+  align-items: center;
+  h1 {
+    margin-bottom: 0;
+  }
 }
 
 #audio-buttons {
@@ -228,6 +238,7 @@ h1 {
 }
 
 .slider {
+  width: 100%;
   -webkit-appearance: none;
   appearance: none;
   height: 0.5rem;
@@ -321,5 +332,16 @@ ul#searchResults {
         font-size: 1.2rem;
       }
     }
+  }
+}
+
+.duration {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  div {
+    display: flex;
+    flex-direction: row;
   }
 }
