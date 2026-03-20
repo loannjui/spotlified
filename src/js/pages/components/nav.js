@@ -1,21 +1,22 @@
+import { currentSong } from "../page-play.js";
+
 class bottomNav extends HTMLElement {
   connectedCallback() {
     this.render();
     this.updatePlayLink();
 
-    // Écoute les changements de chanson
-    document.addEventListener("song-changed", () => this.updatePlayLink());
+    this.querySelector("#play-link").addEventListener("click", () =>
+      this.updatePlayLink(),
+    );
   }
-  attributeChangedCallback() {
-    this.render();
-  }
+
   render() {
     this.innerHTML = `
-    <a href="#index">
+      <a href="#index">
         <i class="fa-solid fa-house"></i>
         <p>Accueil</p>
       </a>
-      <a id="play-link" href="#play">
+      <a id="play-link" href="#play?1/1">
         <i class="fa-solid fa-play"></i>
         <p>Play</p>
       </a>
@@ -29,5 +30,14 @@ class bottomNav extends HTMLElement {
       </a>
     `;
   }
+
+  updatePlayLink() {
+    const playLink = this.querySelector("#play-link");
+
+    if (!currentSong) return;
+
+    playLink.href = `#play?${currentSong.artist.id}/${currentSong.id}`;
+  }
 }
+
 customElements.define("bottom-nav", bottomNav);

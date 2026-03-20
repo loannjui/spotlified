@@ -26,6 +26,10 @@ body {
   color: var(--main-text-color);
 }
 
+#play-section img{
+ max-width: 250px;
+}
+
 #search-bar {
   display: none;
 }
