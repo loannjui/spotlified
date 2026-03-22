@@ -12,10 +12,6 @@ import "./pages/components/favorites-list.js";
 import "./pages/components/player.js";
 import "./pages/components/nav.js";
 
-Notification.requestPermission().then(permission => {
-  console.log(permission); // "granted", "denied", ou "default"
-});
-
 audio.addEventListener("ended", () => {
   playNextSong();
 });
