@@ -7,6 +7,7 @@
   --cold-light-grey: #afbfba;
   --cold-ultra-light-grey: #dde6e3;
   --pure-white: #fff;
+  --deep-red: #a32c2c;
   --standard-margin: 20px;
   --half-margin: 10px;
   --shadow: 0 0 12px rgba(27, 31, 29, 0.07);
@@ -117,12 +118,17 @@ header {
   padding: var(--half-margin);
   border-radius: 5px;
   transition: all 0.25s ease-in-out;
+  &.remove_favorite{
+    color: var(--deep-red);
+  }
   &:hover,
   &:focus {
     color: var(--standard-green);
     background-color: var(--highlight-green);
   }
 }
+
+
 
 bottom-nav {
   background-color: var(--light-grey-bg);

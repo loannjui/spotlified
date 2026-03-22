@@ -49,7 +49,30 @@ export class pagePlay extends HTMLElement {
     const currentDuration = this.querySelector("#current-duration");
     const maxDuration = this.querySelector("#max-duration");
 
-    playBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+    playBtn.innerHTML = audio.paused
+      ? `<i class="fa-solid fa-play"></i>`
+      : `<i class="fa-solid fa-pause"></i>`;
+
+    audio.addEventListener("play", () => {
+      playBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+    });
+
+    audio.addEventListener("pause", () => {
+      playBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+    });
+
+    playBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+
+    audio.addEventListener("ended", () => {
+      this.playNext();
+    });
+
     this.querySelector("#forward-btn").addEventListener("click", () => {
       this.playNext();
     });
@@ -58,15 +81,6 @@ export class pagePlay extends HTMLElement {
       this.playPrevious();
     });
 
-    playBtn.addEventListener("click", () => {
-      if (audio.paused) {
-        audio.play();
-        playBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
-      } else {
-        audio.pause();
-        playBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
-      }
-    });
     const updateDuration = () => {
       const musicDuration = audio.duration;
       if (!isNaN(musicDuration)) {
@@ -119,8 +133,8 @@ export class pagePlay extends HTMLElement {
 
       currentSong = currentSongList[this.currentIndex];
 
-      this.render(); // ✅ ici
-      this.bindEvents(); // ✅ ici
+      this.render();
+      this.bindEvents();
     });
   }
 

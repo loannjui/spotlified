@@ -3,16 +3,20 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { audio } from "./pages/components/player.js";
 import { pageArtists } from "./pages/page-artists.js";
 import { pageListSongs } from "./pages/page-list.js";
-import { currentSong, currentSongList, pagePlay } from "./pages/page-play.js";
+import { pagePlay } from "./pages/page-play.js";
 import { pageFavorites } from "./pages/page-favorites.js";
 import { pageSearch } from "./pages/page-search.js";
 import "./pages/components/artist-cover.js";
-import "./pages/components/search-results.js";
 import "./pages/components/song-list.js";
+import "./pages/components/favorites-list.js";
 import "./pages/components/player.js";
 import "./pages/components/nav.js";
 
+navigator.serviceWorker.register('./spotlifyworker.js');
 
+Notification.requestPermission().then(permission => {
+  console.log(permission); // "granted", "denied", ou "default"
+});
 
 audio.addEventListener("ended", () => {
   playNextSong();

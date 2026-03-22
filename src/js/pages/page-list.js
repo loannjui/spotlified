@@ -28,6 +28,7 @@ export class pageListSongs extends HTMLElement {
         element.setAttribute("title", result.title);
         element.setAttribute("artist-id", result.artist.id);
         element.setAttribute("song-id", result.id);
+        element.setAttribute("song", JSON.stringify(result));
         songsList.appendChild(element);
       });
     });
