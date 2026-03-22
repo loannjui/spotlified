@@ -12,7 +12,7 @@ import "./pages/components/favorites-list.js";
 import "./pages/components/player.js";
 import "./pages/components/nav.js";
 
-navigator.serviceWorker.register('./spotlifyworker.js');
+navigator.serviceWorker.register('./OneSignalSDKWorker.js');
 
 Notification.requestPermission().then(permission => {
   console.log(permission); // "granted", "denied", ou "default"
